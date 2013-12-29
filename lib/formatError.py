@@ -1,4 +1,4 @@
-import exception
+import exceptions
 
 
 class FormatError(Exception):
