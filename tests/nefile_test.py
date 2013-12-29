@@ -7,5 +7,5 @@ sys.path.append(r'../lib')
 
 import nefile
 
-ne = nefile.NE('Ace.exe')
+ne = nefile.NE(sys.argv[1])
 print ne
