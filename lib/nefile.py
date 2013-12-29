@@ -52,10 +52,10 @@ class NE:
         'H,e_oemid', 'H,e_oeminfo', '20s,e_res2',
         'L,e_lfanew'))
 
-    __IMAGE_NE_HEADERS_format__ = ('IMAGE_NE_HEADERS', ('H,Signature',))
+    __IMAGE_NE_SIG_format__ = ('IMAGE_NE_HEADERS', ('H,Signature',))
 
-    __IMAGE_WIN_HEADER_format__ = ('IMAGE_WIN_HEADER', 
-        ('B,LinkerVersion', 'B,LinkerRevision',
+    __IMAGE_NE_HEADER_format__ = ('IMAGE_NE_HEADER', 
+        ('H, Signature', 'B,LinkerVersion', 'B,LinkerRevision',
          'H,EntryTableOffset', 'H,EntryTableSize',
          'I,FileLoadCRC', 'B,ProgramFlags', 'B,ApplicationFlags',
          'H,AutoDataSegmentIndex', 'H,InitialLocalHeapSize', 'H,InitialStackSize',
@@ -124,30 +124,30 @@ class NE:
 
         ne_headers_offset = self.DOS_HEADER.e_lfanew
 
-        self.NE_HEADERS = self.__unpack_data__(
-            self.__IMAGE_NE_HEADERS_format__,
+        NE_SIG = self.__unpack_data__(
+            self.__IMAGE_NE_SIG_format__,
             self.__data__[ne_headers_offset:],
             file_offset = ne_headers_offset)
 
-        if not self.NE_HEADERS or not self.NE_HEADERS.Signature:
-            raise NEFormatError('NE Headers not found.')
+        if not NE_SIG or not NE_SIG.Signature:
+            raise NEFormatError('NE Signature not found.')
 
-        if self.NE_HEADERS.Signature != IMAGE_NE_SIGNATURE:
-            raise NEFormatError('Invalid NE Headers signature.')
+        if NE_SIG.Signature != IMAGE_NE_SIGNATURE:
+            raise NEFormatError('Invalid NE signature.')
 
-        self.WIN_HEADER = self.__unpack_data__(
-            self.__IMAGE_WIN_HEADER_format__,
-            self.__data__[ne_headers_offset+2:],
-            file_offset = ne_headers_offset+2)
+        self.NE_HEADER = self.__unpack_data__(
+            self.__IMAGE_NE_HEADER_format__,
+            self.__data__[ne_headers_offset:],
+            file_offset = ne_headers_offset)
 
-        if not self.WIN_HEADER:
-            raise NEFormatError('Win Header missing')
+        if not self.NE_HEADER:
+            raise NEFormatError('NE Header missing')
 
-        segment_table_offset = self.WIN_HEADER.SegmentTableOffset + ne_headers_offset
+        segment_table_offset = self.NE_HEADER.SegmentTableOffset + ne_headers_offset
 
         self.segmentTable = []
 
-        for i in range(self.WIN_HEADER.SegmentTableEntryCount):
+        for i in range(self.NE_HEADER.SegmentTableEntryCount):
             segment = self.__unpack_data__(
                 self.__IMAGE_SEGMENT_HEADER_format__,
                 self.__data__[segment_table_offset+8*i:],
@@ -186,12 +186,8 @@ class NE:
         dump.add_lines(self.DOS_HEADER.dump())
         dump.add_newline()
 
-        dump.add_header('NE_HEADERS')
-        dump.add_lines(self.NE_HEADERS.dump())
-        dump.add_newline()
-
-        dump.add_header('WIN_HEADER')
-        dump.add_lines(self.WIN_HEADER.dump())
+        dump.add_header('NE_HEADER')
+        dump.add_lines(self.NE_HEADER.dump())
         dump.add_newline()
 
         dump.add_header('NE Segments')
@@ -204,7 +200,7 @@ class NE:
                 if segmentTableEntry.Flags & flag[1]:
                     flags.append(flag[0])
             dump.add_line(', '.join(flags))
-            dump.add_line('File pos %08X' % (segmentTableEntry.Offset << self.WIN_HEADER.Aligment))
+            dump.add_line('File pos: %08X' % (segmentTableEntry.Offset << self.NE_HEADER.Aligment))
             dump.add_newline()
 
         return dump.get_text()
