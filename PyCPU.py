@@ -28,6 +28,9 @@ PyCPU:
 '''
 class PyCPU:
     DEBUG = 0
+
+    MODE_32 = pydasm.MODE_32
+    MODE_16 = pydasm.MODE_16
     
     # Bitmap of eflags
     eflags_map = {"CF": 0x1,
@@ -48,10 +51,11 @@ class PyCPU:
                   "VIP": 0x100000,
                   "ID": 0x200000 }
     
-    def __init__(self, emu):
+    def __init__(self, emu, mode=MODE_32):
                 
         # We store the emu object so we can communicate and request info
         self.emu = emu
+        self.mode = mode
         
         # Initialize all our registers and flags
         self.EAX = 0x00000000
@@ -1315,7 +1319,7 @@ class PyCPU:
                 return False
             
             # Decode instruction from raw returning a pydasm.instruction
-            instruction = pydasm.get_instruction(rawinstruction, pydasm.MODE_32)
+            instruction = pydasm.get_instruction(rawinstruction, self.mode)
             if not instruction:
                 print "[!] Problem decoding instruction"
                 return False
@@ -1794,7 +1798,7 @@ class PyCPU:
             return False
         
         # Decode instruction from raw returning a pydasm.instruction
-        instruction = pydasm.get_instruction(rawinstruction, pydasm.MODE_32)
+        instruction = pydasm.get_instruction(rawinstruction, self.mode)
         if not instruction:
             print "[!] Problem decoding instruction"
             

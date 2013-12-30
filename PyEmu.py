@@ -28,11 +28,11 @@ PyEmu:
 class PyEmu:
     DEBUG = 0
     
-    def __init__(self):
+    def __init__(self, os=None, cpu_mode=PyCPU.MODE_32):
         # Holds a instance of our PyCPU class
         self.cpu = None
         # Holds an instance of our PyOS class
-        self.os = None
+        self.os = os
         
         # Tells the emulator whether we are emulating
         self.emulating = True
@@ -75,7 +75,10 @@ class PyEmu:
         self.heap_access_handler = None
         
         # Instantiate a CPU for use in the emulator
-        self.cpu = PyCPU(self)
+        self.cpu = PyCPU(self, cpu_mode)
+
+        if self.os:
+            return
         
         # Determine which os we are on to instantiate the proper PyOS
         if os.name == 'nt':
@@ -846,9 +849,9 @@ PEPyEmu:
     This is what the user will be instantiating.
 ''' 
 class PEPyEmu(PyEmu):
-    def __init__(self, stack_base=0x0095f000, stack_size=0x1000, heap_base=0x000a0000, heap_size=0x2000, frame_pointer=True):
+    def __init__(self, stack_base=0x0095f000, stack_size=0x1000, heap_base=0x000a0000, heap_size=0x2000, frame_pointer=True, os=None, cpu_mode=PyCPU.MODE_32):
      
-        PyEmu.__init__(self)
+        PyEmu.__init__(self, os, cpu_mode)
    
         # PE Specific information
         self.entry_point = None

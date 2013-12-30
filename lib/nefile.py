@@ -9,7 +9,8 @@ __contact__ = 'kamil@zbrog.org'
 
 import os
 import time
-import exceptions
+import struct
+
 from dump import Dump
 from structure import Structure
 from formatError import FormatError
@@ -72,6 +73,9 @@ class NE:
 
     __IMAGE_SEGMENT_HEADER_format__ = ('IMAGE_SEGMENT_HEADER',
         ('H,Offset', 'H,Length', 'H,Flags', 'H,MinAllocSize'))
+
+    __IMAGE_RELOC_DATA_format__ = ('IMAGE_RELOC_DATA',
+        ('B,AddressType', 'B,RelocType', 'H,Offset', 'H,target1', 'H,Target2'))
 
     def __init__(self, name=None, data=None):
         self.sections = []
@@ -142,7 +146,20 @@ class NE:
 
         if not self.NE_HEADER:
             raise NEFormatError('NE Header missing')
+        # parse imported name table
+        self.imported_name_table = []
+        imported_name_table_offset = self.NE_HEADER.ImportTableOffset + ne_headers_offset + 1
+        for i in range(self.NE_HEADER.ModuleTableEntryCount):
+            string_lenght, = struct.unpack('B', self.__data__[imported_name_table_offset:imported_name_table_offset+1])
+            imported_name, = struct.unpack("%dp" % (string_lenght + 1), self.__data__[imported_name_table_offset:imported_name_table_offset+1+string_lenght])
+            self.imported_name_table.append(imported_name)
+            imported_name_table_offset += string_lenght + 1
 
+        module_referene_table_offset = self.NE_HEADER.ModuleReferenceTableOffset + ne_headers_offset
+        count = self.NE_HEADER.ModuleTableEntryCount
+        self.module_reference_table = struct.unpack("<%dH" % count, self.__data__[module_referene_table_offset:module_referene_table_offset+count*2])
+
+        # parse segment table
         segment_table_offset = self.NE_HEADER.SegmentTableOffset + ne_headers_offset
 
         self.segmentTable = []
@@ -154,6 +171,29 @@ class NE:
                 file_offset = segment_table_offset+8*i)
             self.segmentTable.append(segment)
 
+        # parse reloc data
+        self.relocData = []
+
+        for segmentTableEntry in self.segmentTable:
+            if segmentTableEntry.Flags & NE_SEGFLAGS['NE_SEGFLAGS_RELOC_DATA']:
+                segmentOffset =  segmentTableEntry.Offset << self.NE_HEADER.Aligment
+                relocDataOffset = segmentOffset + segmentTableEntry.Length
+                reloadDataCount, = struct.unpack('<H', self.__data__[relocDataOffset:relocDataOffset+2])
+                relocTable = []
+                for i in range(reloadDataCount):
+                    reloc = self.__unpack_data__(
+                        self.__IMAGE_RELOC_DATA_format__,
+                        self.__data__[relocDataOffset+2+i*8:],
+                        file_offset = relocDataOffset+2+i*8)
+                    relocTable.append(reloc)
+                self.relocData.append(relocTable)
+            self.relocData.append(None)
+
+    def get_segment_data(self, seg_nr):
+        offset = self.segmentTable[seg_nr].Offset << self.NE_HEADER.Aligment
+        return self.__data__[offset:offset+self.segmentTable[seg_nr].Length]
+
+    
     def retrieve_flags(self, flag_dict, flag_filter):
         """Read the flags from a dictionary and return them in a usable form.
         
@@ -163,7 +203,6 @@ class NE:
         
         return [(f[0][len(flag_filter):], f[1]) for f in flag_dict.items() if
                 isinstance(f[0], str) and f[0].startswith(flag_filter)]
-
  
 
     def __str__(self):
@@ -190,9 +229,13 @@ class NE:
         dump.add_lines(self.NE_HEADER.dump())
         dump.add_newline()
 
+        dump.add_header('Imported name table')
+        dump.add_line(', '.join(self.imported_name_table))
+        dump.add_newline()
+
         dump.add_header('NE Segments')
         segment_flags = self.retrieve_flags(NE_SEGFLAGS, 'NE_SEGFLAGS_')
-        for segmentTableEntry in self.segmentTable:
+        for i, segmentTableEntry in enumerate(self.segmentTable):
             dump.add_lines(segmentTableEntry.dump())
             dump.add('Flags: ')
             flags = []
@@ -201,7 +244,18 @@ class NE:
                     flags.append(flag[0])
             dump.add_line(', '.join(flags))
             dump.add_line('File pos: %08X' % (segmentTableEntry.Offset << self.NE_HEADER.Aligment))
+
             dump.add_newline()
+            '''
+
+            if self.relocData[i]:
+                dump.add_line('Reloc data count: %d' % len(self.relocData[i]))
+                for relocEntry in self.relocData[i]:
+                    dump.add_lines(relocEntry.dump())
+                    dump.add_newline()
+
+            dump.add_newline()
+            '''
 
         return dump.get_text()
  
