@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0068)http://www.program-transformation.org/Transform/NeFormat#Entry_Table -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>   Program Transformation Wiki / Ne Format</title>
+  <link rel="alternate" href="http://www.program-transformation.org/view/Transform/WebRss?skin=rss" type="application/rss+xml" title="Recent Changes">
+  <link rel="shortcut icon" href="http://www.cs.uu.nl/favicon.ico" type="image/x-icon">
+  
+  
+  <style type="text/css" media="all">
+	 @import url("/pub/TWiki/FlexPatternSkin/layout.css");
+	 @import url("/pub/TWiki/FlexPatternSkin/style.css");
+	 @import url("/pub/TWiki/FlexPatternSkin/flexmenu.css");
+	 .twikiToc li {
+		list-style-image:url(/pub/TWiki/FlexPatternSkin/i_arrow_down.gif);
+	 }
+  </style>
+  <style type="text/css" media="all"></style>
+  <script type="text/javascript">
+  <!-- HIDE
+	function initPage() { }
+  -->
+  </script>
+  <script type="text/javascript" src="./Program Transformation Wiki   Ne Format_files/flexmenu.js"></script>
+
+</head>
+<body class="twikiViewPage" onload="initPage()"><div class="fullPage">
+<div class="twikiMiddleContainer"><div class="twikiLeftBar">
+  <div class="twikiLeftBarContents">
+    <center>
+  <img src="./Program Transformation Wiki   Ne Format_files/transformation.gif">
+</center>
+<hr width="80%">
+<strong><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebHome">Home</a></strong>
+<p>
+<strong>Surveys</strong>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/ProgramTransformation">Transformation</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/ReengineeringWiki">Reengineering</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/DomainSpecificLanguages">DSL</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/DomainEngineering">Domain Engineering</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/DeCompilation">Decompilation</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/GenerativeProgrammingWiki">Generative Progr.</a>
+<br>
+<br>
+<strong><a class="twikiLink" href="http://www.program-transformation.org/Transform/CategoryCollection">Collections</a></strong>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/CategoryCategory">Categories</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/TransformationSystems">Systems</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/TransformationConferences">Conferences</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/TransformationPeople">People</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/TransformationCompanies">Companies</a>
+<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/CategoryPaper">Papers</a>
+</p><hr>
+<a href="http://www.program-transformation.org/Transform/WebRss?skin=rss"><img border="0" src="./Program Transformation Wiki   Ne Format_files/rss.gif" title="RSS 1.0 feed"></a>
+<p>
+  </p></div>
+</div><div class="twikiMain"><div class="toolBar">
+<div class="flexMenuBar"><div class="flexMenu" onmouseover="return showMenu(event, 100);" onmouseout="return hideMenu(event, 100);">
+  <p>Page</p>
+  <div id="flexMenuContent100" class="flexMenuContent">
+    <ul>
+      <li><a href="http://www.program-transformation.org/edit/Transform/NeFormat?t=1421104191">Edit Page</a></li>
+      <li><a href="http://www.program-transformation.org/rename/Transform/NeFormat">Rename Page</a></li>
+      <li><a href="http://www.program-transformation.org/attach/Transform/NeFormat">Attach File</a></li>
+    </ul>
+    <ul>
+      <li><a href="http://www.program-transformation.org/view/Transform/NeFormat?skin=print.pattern">Printable</a></li>
+      <li><a href="http://www.program-transformation.org/view/Transform/NeFormat?skin=text&raw=on&contenttype=text/plain">Wiki Source</a></li>
+    </ul>
+    <ul>
+       <li class="revision"><a href="http://www.program-transformation.org/view/Transform/NeFormat?rev=1.2">Rev 2</a> <a href="http://www.program-transformation.org/rdiff/Transform/NeFormat?rev1=1.2&rev2=1.1">(diff 1)</a></li> <li class="revision"><a href="http://www.program-transformation.org/view/Transform/NeFormat?rev=1.1">Rev 1</a>
+      </li><li><a href="http://www.program-transformation.org/rdiff/Transform/NeFormat">Total History</a></li>
+    </ul>
+    <ul>
+      <li><a href="http://www.program-transformation.org/oops/Transform/NeFormat?template=oopsmore&param1=1.2&param2=1.2">More ...</a></li>
+    </ul>
+  </div>
+</div>
+<div class="flexMenu" onmouseover="return showMenu(event, 102);" onmouseout="return hideMenu(event, 102);">
+  <p>Web</p>
+  <div id="flexMenuContent102" class="flexMenuContent">
+    <ul>
+      <li><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebChanges">Recent Changes</a></li>
+      <li><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebNotify">Notify Service</a></li>
+      <li><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebNews">News</a></li>
+    </ul>
+    <ul>
+      <li><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebIndex">Page Index</a></li>
+      <li><a class="twikiLink" href="http://www.program-transformation.org/Transform/WebSearch">Search</a></li>
+      </ul>
+      <ul>
+   <li><a href="http://www.program-transformation.org/oops/Transform/NeFormat?template=oopsmore&param1=1.2&param2=1.2">More ...</a></li>
+      </ul>
+  </div>
+</div>
+<div class="flexMenu" onmouseover="return showMenu(event, 103);" onmouseout="return hideMenu(event, 103);">
+  <p>Wiki</p>
+  <div id="flexMenuContent103" class="flexMenuContent">
+    <ul>
+      <li><a href="http://www.program-transformation.org/view/TWiki/WebHome">About TWiki</a></li>
+      <li><a href="http://www.program-transformation.org/view/TWiki/TextFormattingRules">Text Formatting</a></li>
+    </ul>
+    <ul>
+      <li><a href="http://www.program-transformation.org/view/TWiki/TWikiRegistration">Registration</a></li>
+      <li><a href="http://www.program-transformation.org/view/TWiki/ChangePassword">Change Password</a></li>
+      <li><a href="http://www.program-transformation.org/view/TWiki/ResetPassword">Reset Password</a></li>
+    </ul>
+      <ul>
+   <li><a href="http://www.program-transformation.org/view/Main/TWikiUsers">Users</a></li>
+   <li><a href="http://www.program-transformation.org/view/Main/TWikiGroups">Groups</a></li>
+      </ul>
+  </div>
+</div></div>
+</div> <div class="twikiTopic">
+<h1 class="twikiTopicTitle">Ne Format</h1>
+<div class="twikiWebTitle">Program-Transformation.Org: The Program Transformation Wiki</div>
+<h2><a name="New_style_EXE_Format"> </a> New-style EXE Format  </h2>
+<p>
+An executable (.EXE) file for the Windows operating system contains a combination of code and data or a combination of code, data, and resources. The executable file also contains two headers: an MS-DOS header and a Windows header. The next two sections describe these headers; the third section describes the code and data contained in a Windows executable file. 
+</p><p>
+</p><div class="twikiToc">
+<ul>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#New_style_EXE_Format">New-style EXE Format </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#MS_DOS_Header">MS-DOS Header </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Windows_Header">Windows Header </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Information_Block">Information Block </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Segment_Table">Segment Table </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Resource_Table">Resource Table </a>
+<ul>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Type_Information">Type Information </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Name_Information">Name Information </a>
+</li>
+</ul>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Resident_Name_Table">Resident-Name Table </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Module_Reference_Table">Module-Reference Table </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Imported_Name_Table">Imported-Name Table </a>
+</li>
+<li> <a href="./Program Transformation Wiki   Ne Format_files/Program Transformation Wiki   Ne Format.html">Entry Table </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Nonresident_Name_Table">Nonresident-Name Table </a>
+</li>
+<li> <a href="http://www.program-transformation.org/Transform/NeFormat#Code_Segments_and_Relocation_Dat">Code Segments and Relocation Data </a>
+</li>
+</ul>
+</div>
+<p>
+</p><h2><a name="MS_DOS_Header"> </a> MS-DOS Header  </h2>
+<p>
+The MS-DOS (old-style) executable-file header contains four distinct parts: a collection of header information (such as
+the signature word, the file size, and so on), a reserved section, a pointer to a Windows header (if one exists), and a stub
+program. The following illustration shows the MS-DOS executable-file header: If the word value at offset 18h is 40h or
+greater, the word value at 3Ch is typically an offset to a Windows header. Applications must verify this for each
+executable-file header being tested, because a few applications have a different header style. MS-DOS uses the stub
+program to display a message if Windows has not been loaded when the user attempts to run a program. 
+</p><p>
+</p><h2><a name="Windows_Header"> </a> Windows Header  </h2>
+<p>
+The Windows (new-style) executable-file header contains information that the loader requires for segmented executable
+files. This information includes the linker version number, data specified by the linker, data specified by the resource
+compiler, tables of segment data, tables of resource data, and so on. The following illustration shows the Windows
+executable-file header: The following sections describe the entries in the Windows executable-file header. 
+</p><p>
+</p><h2><a name="Information_Block"> </a> Information Block  </h2>
+<p>
+The information block in the Windows header contains the linker version number, the lengths of various tables that further
+describe the executable file, the offsets from the beginning of the header to the beginning of these tables, the heap and
+stack sizes, and so on. The following list summarizes the contents of the header information block (the locations are
+relative to the beginning of the block): 
+</p><p>
+Location: Description 
+</p><p>
+</p><ul>
+<li> 00h: The signature word. The low byte contains "N" (4Eh) and the high byte contains "E" (45h). 
+</li>
+<li> 02h: The linker version number. 
+</li>
+<li> 03h: The linker revision number. 
+</li>
+<li> 04h: The offset to the entry table (relative to the beginning of the header). 
+</li>
+<li> 06h: The length of the entry table, in bytes. 
+</li>
+<li> 08h: Reserved. 
+</li>
+<li> 0Ch: Flags that describe the contents of the executable file. This value can be one or more of the following bits: 
+<ul>
+<li> 0: The linker sets this bit if the executable-file format is SINGLEDATA. An executable file with this format
+         contains one data segment. This bit is set if the file is a dynamic-link library (DLL). 
+</li>
+<li> 1: The linker sets this bit if the executable-file format is MULTIPLEDATA. An executable file with this format contains multiple data segments. This bit is set if the file is a Windows application. If neither bit 0 nor bit 1 is set, the executable-file format is NOAUTODATA. An executable file with this format does not contain an automatic data segment. 
+</li>
+<li>  2: Reserved. 
+</li>
+<li>  3: Reserved. 
+</li>
+<li>  8: Reserved. 
+</li>
+<li>  9: Reserved. 
+</li>
+<li>  11: If this bit is set, the first segment in the executable file contains code that loads the application. 
+</li>
+<li>  13: If this bit is set, the linker detects errors at link time but still creates an executable file. 
+</li>
+<li>  14: Reserved. 
+</li>
+<li>  15: If this bit is set, the executable file is a library module. If bit 15 is set, the CS:IP registers point to an initialization procedure called with the value in the AX register equal to the module handle. The initialization procedure must execute a far return to the caller. If the procedure is successful, the value in AX is nonzero. Otherwise, the value in AX is zero.<br>
+         The value in the DS register is set to the library's data segment if SINGLEDATA is set. Otherwise, DS is set to the data segment of the application that loads the library. 
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</p><ul>
+<li> 0Eh: The automatic data segment number. (0Eh is zero if the SINGLEDATA and MULTIPLEDATA bits are cleared.) 
+</li>
+<li> 10h: The initial size, in bytes, of the local heap. This value is zero if there is no local allocation. 
+</li>
+<li> 12h: The initial size, in bytes, of the stack. This value is zero if the SS register value does not equal the DS register
+     value. 
+</li>
+<li> 14h: The segment:offset value of CS:IP. 
+</li>
+<li> 18h: The segment:offset value of SS:SP. The value specified in SS is an index to the module's segment table. The first entry in the segment table corresponds to segment number 1. If SS addresses the automatic data segment and SP is zero, SP is set to the address obtained by adding the size of the automatic data segment to the size of the stack. 
+</li>
+</ul>
+<p>
+</p><ul>
+<li> 1Ch: The number of entries in the segment table. 
+</li>
+<li> 1Eh: The number of entries in the module-reference table. 
+</li>
+<li> 20h: The number of bytes in the nonresident-name table. 
+</li>
+<li> 22h: A relative offset from the beginning of the Windows header to the beginning of the segment table. 
+</li>
+<li> 24h: A relative offset from the beginning of the Windows header to the beginning of the resource table. 
+</li>
+<li> 26h: A relative offset from the beginning of the Windows header to the beginning of the resident-name table. 
+</li>
+<li> 28h: A relative offset from the beginning of the Windows header to the beginning of the module-reference table. 
+</li>
+<li> 2Ah: A relative offset from the beginning of the Windows header to the beginning of the imported-name table. 
+</li>
+<li> 2Ch: A relative offset from the beginning of the file to the beginning of the nonresident-name table. 
+</li>
+<li> 30h: The number of movable entry points. 
+</li>
+<li> 32h: A shift count that is used to align the logical sector. This count is log2 of the segment sector size. It is typically 4, although the default count is 9. (This value corresponds to the /alignment [/a] linker switch. When the linker command line contains /a:16, the shift count is 4. When the linker command line contains /a:512, the shift count is 9.)
+</li>
+<li> 34h: The number of resource segments. 
+</li>
+<li> 36h: The target operating system, depending on which bits are set: 
+<ul>
+<li>  0: Operating system format is unknown. 
+</li>
+<li>  1: Reserved. 
+</li>
+<li>  2: Operating system is Microsoft Windows. 
+</li>
+<li>  3: Reserved. 
+</li>
+<li>  4: Reserved. 
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</p><ul>
+<li> 37h: Additional information about the executable file. It can be one or more of the following values: 
+      *   1: If this bit is set, the executable file contains a Windows 2.x application that runs in version 3.x protected
+         mode. 
+<ul>
+<li>  2: If this bit is set, the executable file contains a Windows 2.x application that supports proportional fonts. 
+</li>
+<li>  3: If this bit is set, the executable file contains a fast-load area. 
+</li>
+</ul>
+</li>
+</ul>
+<p>
+</p><ul>
+<li> 38h: The offset, in sectors, to the beginning of the fast-load area. (Only Windows uses this value.) 
+</li>
+<li> 3Ah: The length, in sectors, of the fast-load area. (Only Windows uses this value.) 
+</li>
+<li> 3Ch: Reserved. 
+</li>
+<li> 3Eh: The expected version number for Windows. (Only Windows uses this value.) 
+</li>
+</ul>
+<p>
+</p><h2><a name="Segment_Table"> </a> Segment Table  </h2>
+<p>
+The segment table contains information that describes each segment in an executable file. This information includes the segment length, segment type, and segment-relocation data. The following list summarizes the values found in the
+segment table (the locations are relative to the beginning of each entry): 
+</p><p>
+</p><ul>
+<li> 00h: The offset, in sectors, to the segment data (relative to the beginning of the file). A value of zero means no data
+     exists. 
+</li>
+<li> 02h: The length, in bytes, of the segment, in the file. A value of zero indicates that the segment length is 64K, unless the selector offset is also zero. 
+</li>
+<li> 04h: Flags that describe the contents of the executable file. This value can be one or more of the following: 
+<ul>
+<li>  0: If this bit is set, the segment is a data segment. Otherwise, the segment is a code segment. 
+</li>
+<li>  1: If this bit is set, the loader has allocated memory for the segment. 
+</li>
+<li>  2: If this bit is set, the segment is loaded. 
+</li>
+<li>  3: Reserved. 
+</li>
+<li>  4: If this bit is set, the segment type is MOVABLE. Otherwise, the segment type is FIXED. 
+</li>
+<li>  5: If this bit is set, the segment type is PURE or SHAREABLE. Otherwise, the segment type is IMPURE or
+         NONSHAREABLE. 
+</li>
+<li>  6: If this bit is set, the segment type is PRELOAD. Otherwise, the segment type is LOADONCALL. 
+</li>
+<li>  7: If this bit is set and the segment is a code segment, the segment type is EXECUTEONLY. If this bit is set
+         and the segment is a data segment, the segment type is READONLY. 
+</li>
+<li>  8: If this bit is set, the segment contains relocation data. 
+</li>
+<li>  9: Reserved. 
+</li>
+<li>  10: Reserved. 
+</li>
+<li>  11: Reserved. 
+</li>
+<li>  12: If this bit is set, the segment is discardable. 
+</li>
+<li>  13: Reserved. 
+</li>
+<li>  14: Reserved. 
+</li>
+<li>  15: Reserved. 
+</li>
+</ul>
+</li>
+<li>  06h: The minimum allocation size of the segment, in bytes. A value of zero indicates that the minimum allocation size is 64K. 
+</li>
+</ul>
+<p>
+</p><h2><a name="Resource_Table"> </a> Resource Table  </h2>
+<p>
+The resource table describes and identifies the location of each resource in the executable file. 
+</p><p>
+Following are the members in the resource table: 
+</p><p>
+</p><ul>
+<li> rscAlignShift: The alignment shift count for resource data. When the shift count is used as an exponent of 2, the resulting value specifies the factor, in bytes, for computing the location of a resource in the executable file. 
+</li>
+<li> rscTypes: An array of TTYPEINFO structures containing information about resource types. There must be one TTYPEINFO structure for each type of resource in the executable file. 
+</li>
+<li> rscEndTypes: The end of the resource type definitions. This member must be zero. 
+</li>
+<li> rscResourceNames: The names (if any) associated with the resources in this table. Each name is stored as
+     consecutive bytes; the first byte specifies the number of characters in the name. 
+</li>
+<li> rscEndNames: The end of the resource names and the end of the resource table. This member must be zero. 
+</li>
+</ul>
+<p>
+</p><h3><a name="Type_Information"> </a> Type Information  </h3>
+<p>
+Following are the members in the TTYPEINFO structure: 
+</p><p>
+</p><ul>
+<li> rtTypeID: The type identifier of the resource. This integer value is either a resource-type value or an offset to a resource-type name. If the high bit in this member is set (0x8000), the value is one of the following resource-type values: 
+<ul>
+<li>  RT_ACCELERATOR: Accelerator table 
+</li>
+<li>  RT_BITMAP: Bitmap 
+</li>
+<li>  RT_CURSOR: Cursor 
+</li>
+<li>  RT_DIALOG: Dialog box 
+</li>
+<li>  RT_FONT: Font component 
+</li>
+<li>  RT_FONTDIR: Font directory 
+</li>
+<li>  RT_GROUP_CURSOR: Cursor directory 
+</li>
+<li>  RT_GROUP_ICON: Icon directory 
+</li>
+<li>  RT_ICON: Icon 
+</li>
+<li>  RT_MENU: Menu 
+</li>
+<li>  RT_RCDATA: Resource data 
+</li>
+<li>  RT_STRING: String table<br> If the high bit of the value in this member is not set, the value represents an offset, in bytes relative to the beginning   of the resource table, to a name in the rscResourceNames member. 
+</li>
+</ul>
+</li>
+<li> rtResourceCount: The number of resources of this type in the executable file. 
+</li>
+<li> rtReserved: Reserved. 
+</li>
+<li> rtNameInfo: An array of TNAMEINFO structures containing information about individual resources. The
+</li>
+<li> rtResourceCount member specifies the number of structures in the array. 
+</li>
+</ul>
+<p>
+</p><h3><a name="Name_Information"> </a> Name Information  </h3>
+<p>
+Following are the members in the TNAMEINFO structure: 
+</p><p>
+</p><ul>
+<li> rnOffset: An offset to the contents of the resource data (relative to the beginning of the file). The offset is in terms of alignment units specified by the rscAlignShift member at the beginning of the resource table. 
+</li>
+<li> rnLength: The resource length, in bytes. 
+</li>
+<li> rnFlags: Whether the resource is fixed, preloaded, or shareable. This member can be one or more of the following values: 
+<ul>
+<li>  0x0010: Resource is movable (MOVEABLE). Otherwise, it is fixed. 
+</li>
+<li>  0x0020: Resource can be shared (PURE). 
+</li>
+<li>  0x0040: Resource is preloaded (PRELOAD). Otherwise, it is loaded on demand. 
+</li>
+</ul>
+</li>
+<li> rnID: Specifies or points to the resource identifier. If the identifier is an integer, the high bit is set (8000h). Otherwise, it is an offset to a resource string, relative to the beginning of the resource table. 
+</li>
+<li> rnHandle: Reserved. 
+</li>
+<li> rnUsage: Reserved. 
+</li>
+</ul>
+<p>
+</p><h2><a name="Resident_Name_Table"> </a> Resident-Name Table  </h2>
+<p>
+The resident-name table contains strings that identify exported functions in the executable file. As the name implies, these
+strings are resident in system memory and are never discarded. The resident-name strings are case-sensitive and are not null-terminated. The following list summarizes the values found in the resident-name table (the locations are relative to the beginning of each entry): 
+</p><p>
+</p><ul>
+<li> 00h: The length of a string. If there are no more strings in the table, this value is zero. 
+</li>
+<li> 01h - xxh: The resident-name text. This string is case-sensitive and is not null-terminated. 
+</li>
+<li> xxh + 01h: An ordinal number that identifies the string. This number is an index into the entry table. 
+</li>
+</ul>
+<p>
+The first string in the resident-name table is the module name. 
+</p><p>
+</p><h2><a name="Module_Reference_Table"> </a> Module-Reference Table  </h2>
+<p>
+The module-reference table contains offsets for module names stored in the imported-name table. Each entry in this table
+is 2 bytes long. 
+</p><p>
+</p><h2><a name="Imported_Name_Table"> </a> Imported-Name Table  </h2>
+<p>
+The imported-name table contains the names of modules that the executable file imports. Each entry contains two parts: a single byte that specifies the length of the string and the string itself. The strings in this table are not null-terminated. 
+</p><p>
+</p><h2><a name="Entry_Table"> </a> Entry Table  </h2>
+<p>
+The entry table contains bundles of entry points from the executable file (the linker generates each bundle). The numbering system for these ordinal values is 1-based--that is, the ordinal value corresponding to the first entry point is 1.
+</p><p>
+The linker generates the densest possible bundles under the restriction that it cannot reorder the entry points. This restriction is necessary because other executable files may refer to entry points within a given bundle by their ordinal values. 
+</p><p>
+The entry-table data is organized by bundle, each of which begins with a 2-byte header. The first byte of the header specifies the number of entries in the bundle (a value of 00h designates the end of the table). The second byte specifies whether the corresponding segment is movable or fixed. If the value in this byte is 0FFh, the segment is movable. If the value in this byte is 0FEh, the entry does not refer to a segment but refers, instead, to a constant defined within the module. If the value in this byte is neither 0FFh nor 0FEh, it is a segment index. 
+</p><p>
+For movable segments, each entry consists of 6 bytes and has the following form: 
+</p><p>
+</p><ul>
+<li> 00h: Specifies a byte value. This value can be a combination of the following bits: 
+<ul>
+<li>  0: If this bit is set, the entry is exported. 
+</li>
+<li>  1: If this bit is set, the segment uses a global (shared) data segment. 
+</li>
+<li>  3-7: If the executable file contains code that performs ring transitions, these bits specify the number of words that compose the stack. At the time of the ring transition, these words must be copied from one ring to the other. 
+</li>
+</ul>
+</li>
+<li> 01h: An int 3fh instruction. 
+</li>
+<li> 03h: The segment number. 
+</li>
+<li> 04h: The segment offset. 
+</li>
+</ul>
+<p>
+For fixed segments, each entry consists of 3 bytes and has the following form: 
+</p><p>
+</p><ul>
+<li> 00h: Specifies a byte value. This value can be a combination of the following bits: 
+<ul>
+<li>  0: If this bit is set, the entry is exported. 
+</li>
+<li>  1: If this bit is set, the entry uses a global (shared) data segment. (This may be set only for SINGLEDATA library modules.) 
+</li>
+<li>  3-7: If the executable file contains code that performs ring transitions, these bits specify the number of words that compose the stack. At the time of the ring transition, these words must be copied from one ring to the other. 
+</li>
+</ul>
+</li>
+<li> 01h: Specifies an offset. 
+</li>
+</ul>
+<p>
+</p><h2><a name="Nonresident_Name_Table"> </a> Nonresident-Name Table  </h2>
+<p>
+The nonresident-name table contains strings that identify exported functions in the executable file. As the name implies, these strings are not always resident in system memory and are discardable. The nonresident-name strings are
+case-sensitive; they are not null-terminated. The following list summarizes the values found in the nonresident-name table (the specified locations are relative to the beginning of each entry): 
+</p><p>
+</p><ul>
+<li> 00h: The length, in bytes, of a string. If this byte is 00h, there are no more strings in the table. 
+</li>
+<li> 01h - xxh: The nonresident-name text. This string is case-sensitive and is not null-terminated. 
+</li>
+<li> xx + 01h: An ordinal number that is an index to the entry table. 
+</li>
+</ul>
+<p>
+The first name that appears in the nonresident-name table is the module description string (which was specified in the module-definition file). 
+</p><p>
+</p><h2><a name="Code_Segments_and_Relocation_Dat"> </a> Code Segments and Relocation Data  </h2>
+<p>
+Code and data segments follow the Windows header. Some of the code segments may contain calls to functions in other segments and may, therefore, require relocation data to resolve those references. This relocation data is stored in a
+relocation table that appears immediately after the code or data in the segment. The first 2 bytes in this table specify the number of relocation items the table contains. A relocation item is a collection of bytes specifying the following information: 
+</p><p>
+</p><ul>
+<li> Address type (segment only, offset only, segment and offset) 
+</li>
+<li> Relocation type (internal reference, imported ordinal, imported name) 
+</li>
+<li> Segment number or ordinal identifier (for internal references) 
+</li>
+<li> Reference-table index or function ordinal number (for imported ordinals) 
+</li>
+<li> Reference-table index or name-table offset (for imported names) 
+</li>
+</ul>
+<p>
+Each relocation item contains 8 bytes of data, the first byte of which specifies one of the following relocation-address types: 
+</p><p>
+</p><ul>
+<li> 0: Low byte at the specified offset 
+</li>
+<li> 2: 16-bit selector 
+</li>
+<li> 3: 32-bit pointer 
+</li>
+<li> 5: 16-bit offset 
+</li>
+<li> 11: 48-bit pointer 
+</li>
+<li> 13: 32-bit offset 
+</li>
+</ul>
+<p>
+The second byte specifies one of the following relocation types: 
+</p><p>
+</p><ul>
+<li> 0: Internal reference 
+</li>
+<li> 1: Imported ordinal 
+</li>
+<li> 2: Imported name 
+</li>
+<li> 3: OSFIXUP 
+</li>
+</ul>
+<p>
+The third and fourth bytes specify the offset of the relocation item within the segment. 
+</p><p>
+If the relocation type is imported ordinal, the fifth and sixth bytes specify an index to a module's reference table and the seventh and eighth bytes specify a function ordinal value.
+</p><p>
+If the relocation type is imported name, the fifth and sixth bytes specify an index to a module's reference table and the seventh and eighth bytes specify an offset to an imported-name table. 
+</p><p>
+If the relocation type is internal reference and the segment is fixed, the fifth byte specifies the segment number, the sixth byte is zero, and the seventh and eighth bytes specify an offset to the segment. If the relocation type is internal reference and the segment is movable, the fifth byte specifies 0FFh, the sixth byte is zero; and the seventh and eighth bytes specify an ordinal value found in the segment's entry table. 
+</p><p>
+</p><hr>
+Copyright © 1998 <a class="twikiLink" href="http://www.program-transformation.org/Transform/CristinaCifuentes">Cristina Cifuentes</a>, All Rights Reserved.<br>
+<a class="twikiLink" href="http://www.program-transformation.org/Transform/CategoryDecompilation">CategoryDecompilation</a>
+<br class="twikiClear">
+<a name="TopicEnd"></a>
+</div>
+<!---->
+<!---->
+<p>
+</p><div class="twikiTopicInfo twikiRevInfo twikiGrayText twikiMoved"></div>
+</div></div>
+</div></body></html>

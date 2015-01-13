@@ -75,7 +75,7 @@ class NE:
         ('H,Offset', 'H,Length', 'H,Flags', 'H,MinAllocSize'))
 
     __IMAGE_RELOC_DATA_format__ = ('IMAGE_RELOC_DATA',
-        ('B,AddressType', 'B,RelocType', 'H,Offset', 'H,target1', 'H,Target2'))
+        ('B,AddressType', 'B,RelocType', 'H,Offset', 'H,Target1', 'H,Target2'))
 
     def __init__(self, name=None, data=None):
         self.sections = []
@@ -187,7 +187,8 @@ class NE:
                         file_offset = relocDataOffset+2+i*8)
                     relocTable.append(reloc)
                 self.relocData.append(relocTable)
-            self.relocData.append(None)
+            else:
+                self.relocData.append(None)
 
     def get_segment_data(self, seg_nr):
         offset = self.segmentTable[seg_nr].Offset << self.NE_HEADER.Aligment
@@ -216,7 +217,7 @@ class NE:
         
         
     def dump_info(self):
-        """Dump all the PE header information into human readable string."""
+        """Dump all the NE header information into human readable string."""
         
         
         dump = Dump()
@@ -246,7 +247,7 @@ class NE:
             dump.add_line('File pos: %08X' % (segmentTableEntry.Offset << self.NE_HEADER.Aligment))
 
             dump.add_newline()
-            '''
+            
 
             if self.relocData[i]:
                 dump.add_line('Reloc data count: %d' % len(self.relocData[i]))
@@ -255,7 +256,6 @@ class NE:
                     dump.add_newline()
 
             dump.add_newline()
-            '''
 
         return dump.get_text()
  
